@@ -2,6 +2,11 @@
 The following is the initial README with the project overview. 
 
 ## Instructions
+Clone or Download the repository. Extract the files to a file of your choice. 
+Right click the index.html file and open in a modern browser of your choice. 
+Scroll down to the bottom to view the tests. 
+
+**Scroll to the bottom of this README to view Summary of Tests, Resources, and Dependencies**
 
 In this project you are given a web-based application that reads RSS feeds. The original developer of this application clearly saw the value in testing, they've already included [Jasmine](http://jasmine.github.io/) and even started writing their first test suite! Unfortunately, they decided to move on to start their own company and we're now left with an application with an incomplete test suite. That's where you come in.
 
@@ -49,3 +54,24 @@ Review the Feed Reader Testing [Project Rubric](https://review.udacity.com/#!/pr
 19. Implement error handling for undefined variables and out-of-bound array access.
 20. When complete - all of your tests should pass. 
 21. Write a README file detailing all steps required to successfully run the application. If you have added additional tests (for Udacious Test Coverage),  provide documentation for what these future features are and what the tests are checking for.
+
+## Summary of Tests
+1. Ensuring that a URL is defined in each feed and that it is not empty
+2. Ensuring that each object in the feed has a defined name and that the name is not empty
+3. Ensuring the menu is hidden by default (upon page load)
+4. Ensuring menu changes visibility and displays when clicked, then hides when clicked again
+5. Ensuring there is at least one entry in the feed on load
+6. Ensuring the content of the feed actually changes when a new feed is loaded
+
+## Resources 
+The UDACITY provided starter code was used. 
+https://github.com/udacity/frontend-nanodegree-feedreader
+
+Source used to get started in understanding the project, specifically asychronous functions
+https://matthewcranford.com/feed-reader-walkthrough-part-4-async-tests/
+
+Understanding Jasmine 
+https://jasmine.github.io/tutorials/your_first_suite
+
+## Dependencies
+Web browser that supports Javascript ES6
