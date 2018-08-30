@@ -64,41 +64,38 @@ $(function() {
   });
 
   describe('Initial Entries', function() {
-
-         //Use asynchronous funtion loadFeed() to load the feed (menu links)
-         //Use done parameter to end the loadFeed()
+          //call loadFeed function as an asychronous function
     beforeEach(function(done) {
       loadFeed(0, done);
     });
 
-          //After asynchronous function is run, perform check that what was loaded has a length greater than 0
+          //check to see if there is at least 1 .entry element in the .feed container
     it('completes work', function () {
-      expect((feed.children).length).not.toBe(0);
+      expect($('.feed .entry').length).not.toBe(0);
     });
   });
 
+
   describe('New Feed Selection', function() {
 
-         //store the loaded first feed's contents in an Array
-    const firstFeed = [];
-         //convert the children of the feed element into the Array
-         //push the inner text from the entries into the array, this will be used to compare content changes
+         //define variables
+    let prevFeed;
+    let newFeed;
+
     beforeEach(function(done) {
-      loadFeed(0);
-      Array.from(feed.children).forEach(function(entry) {
-        firstFeed.push(entry.innerText);
-      });
-      loadFeed(1,function () {
-        done();
+      loadFeed(0, function() {
+          prevFeed = document.querySelector('.feed').innerHTML;
+          loadFeed(1, function() {
+            newFeed = document.querySelector('.feed').innerHTML;
+            done();
+          });
       });
     });
 
-         //Check that the update actually happened by comparing the innerText from the new
-         //feed to the indexed entries in the firstFeed array to make sure they do not match
+         //Check that the update actually happened by comparing the variables
     it('update content', function() {
-      Array.from(feed.children).forEach(function(entry,index) {
-        expect(entry.innerText).not.toEqual(firstFeed[index]);
-      });
+      expect(prevFeed).not.toEqual(newFeed);
     });
+
   });
 });
